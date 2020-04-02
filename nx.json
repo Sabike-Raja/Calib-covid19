@@ -1,0 +1,25 @@
+{
+  "npmScope": "calib-covid19",
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "crm": {
+      "tags": []
+    },
+    "crm-e2e": {
+      "tags": [],
+      "implicitDependencies": ["crm"]
+    },
+    "server": {
+      "tags": []
+    }
+  }
+}
