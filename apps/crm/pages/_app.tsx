@@ -7,34 +7,9 @@ import { AppState } from '../types/AppState';
 import './index.scss'
 import '../containers/ChartView/style.scss'
 import '../containers/Dashboard/style.scss'
+import '../containers/TableView/style.scss'
 
 export type AppPropsWithStore = AppProps & { reduxStore: AppState };
-
-// class App extends NextApp {
-//   static async getInitialProps({
-//     Component,
-//     ctx
-//   }: AppContext): Promise<AppInitialProps> {
-//     let pageProps = {};
-
-//     if (Component.getInitialProps) {
-//       pageProps = await Component.getInitialProps(ctx);
-//     }
-
-//     return {
-//       pageProps
-//     };
-//   }
-
-//   render() {
-//     const { Component, pageProps, reduxStore } = this.props as any;
-//     return (
-//       <Provider store={reduxStore}>
-//         <Component {...pageProps} />
-//       </Provider>
-//     );
-//   }
-// }
 
 const App = ({
   Component,

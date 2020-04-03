@@ -1,12 +1,14 @@
 import React, { memo, useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
 import Dropdown from 'react-dropdown';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { Helmet } from "react-helmet";
+
 
 import { ChartApiData, CaseTimeSeries } from './IChart'
 import ChartView from '../../components/chart'
-
-// import './style.scss'
+import Loader from '../../components/Loader'
+import { updateBrowserIcon } from '../../utils'
 
 function ChartViewContainer() {
     const router = useRouter()
@@ -23,6 +25,7 @@ function ChartViewContainer() {
             changeChartLabel("March", data.cases_time_series)
             setCaseTimeSeries(data.cases_time_series)
         })
+        updateBrowserIcon()
     }, [])
 
     useEffect(() => {
@@ -69,6 +72,11 @@ function ChartViewContainer() {
 
     return (
         <Fragment>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>COVID19 | Chart view</title>
+                <meta name="description" content="Chart view page" />
+            </Helmet>
             <div className="m-60">
                 <div style={{ display: 'flex' }}>
                     <span onClick={gotoDashBoard} className="btn-flip" data-back="Go Back" data-front="Click"> Go Back </span>
@@ -76,7 +84,7 @@ function ChartViewContainer() {
                         <Dropdown options={["January", "February", "March", "April"]} onChange={(e) => changeMonth(e)} value={month} placeholder="Select an month" />
                     </div>
                 </div>
-                {isLoading ? <ChartView chartLabel={chartLabel} confirmedCase={confirmedCase} recoveredCase={recoveredCase} deceasedCase={deceasedCase} /> : null}
+                {isLoading ? <ChartView chartLabel={chartLabel} confirmedCase={confirmedCase} recoveredCase={recoveredCase} deceasedCase={deceasedCase} /> : <Loader />}
             </div>
         </Fragment>
     )

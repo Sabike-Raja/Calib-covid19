@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import * as _ from 'lodash'
 
 import MapComp from '../map';
@@ -11,7 +11,7 @@ import { States, CurrentHoveredRegion, CurrentMapData } from '../quickView/IQuic
 type AppProps = { states: States[], stateDistrictWiseData: any, regionHighlighted: any };
 
 export default function FullMap({ states, stateDistrictWiseData, regionHighlighted }: AppProps) {
-    const [selectedRegion, setSelectedRegion] = useState({});
+    const [selectedRegion] = useState({});
     const [currentHoveredRegion, setCurrentHoveredRegion] = useState<CurrentHoveredRegion>({
         name: 'India',
         lastupdatedtime: '',
@@ -140,7 +140,6 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
 
     const switchMapToState = useCallback(
         (name) => {
-            console.log('sucess', 6)
             const newMap = mapMeta[name];
             if (!newMap) {
                 return;
@@ -167,7 +166,6 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
     if (!currentHoveredRegion) {
         return null;
     }
-    console.log('sucess', 7, name)
 
     return (
         <div className="MapExplorer fadeInUp" style={{ animationDelay: '1.2s' }}>
@@ -176,8 +174,8 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
                 <h6>
                     {window.innerWidth <= 769 ? 'Tap' : 'Hover'} over a{' '}
                     {currentMap.mapType === MAP_TYPES.COUNTRY ? 'state' : 'district'} for
-          more details
-        </h6>
+                    more details
+                </h6>
                 {window.innerWidth <= 769 && (
                     <h6 style={{ marginTop: '1rem' }}>
                         <span

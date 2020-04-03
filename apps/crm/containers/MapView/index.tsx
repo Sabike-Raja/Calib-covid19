@@ -7,8 +7,11 @@
 import React, { memo, useEffect, Fragment, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router'
+import { Helmet } from "react-helmet";
 
 import FullMap from '../../components/fullMap'
+import Loader from '../../components/Loader'
+import { updateBrowserIcon } from '../../utils'
 
 import { States } from '../../components/quickView/IQuickView'
 
@@ -21,6 +24,7 @@ const MapView = () => {
 
     useEffect(() => {
         getStates()
+        updateBrowserIcon()
     }, [])
 
     const getStates = async () => {
@@ -44,6 +48,11 @@ const MapView = () => {
 
     return (
         <Fragment>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>COVID19 | Map view</title>
+                <meta name="description" content="Map view page" />
+            </Helmet>
             {
                 !isLoading ?
                     <div className="m-60">
@@ -54,7 +63,7 @@ const MapView = () => {
                             regionHighlighted={regionHighlighted}
                         />
                     </div>
-                    : <div> Loading... </div>
+                    : <Loader />
             }
 
         </Fragment>

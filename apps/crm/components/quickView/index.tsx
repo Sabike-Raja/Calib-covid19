@@ -37,7 +37,7 @@ function QuickView(props: AppProps) {
   }, [data]);
 
   return (
-    <div className="Level fadeInUp" style={{animationDelay: '0.8s'}}>
+    <div className="Level">
       <div className="level-item is-cherry">
         <h5>Confirmed</h5>
         <h4>
