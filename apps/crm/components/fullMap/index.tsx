@@ -35,7 +35,6 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
             name: '',
             Unknown: 0,
         };
-        console.log('sucess', 1)
         if (currentMap.mapType === MAP_TYPES.COUNTRY) {
             currentMapData = states.reduce((acc: any, state) => {
                 if (state.state === 'Total') {
@@ -69,7 +68,6 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
 
     const setHoveredRegion = useCallback(
         (name, currentMap) => {
-            console.log('sucess', 2)
             if (currentMap.mapType === MAP_TYPES.COUNTRY) {
                 setCurrentHoveredRegion(
                     getRegionFromState(states.filter((state) => name === state.state)[0])
@@ -94,7 +92,6 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
     );
 
     // useEffect(() => {
-    //     console.log('sucess', 3, regionHighlighted)
     //     if (regionHighlighted === undefined) {
     //         return;
     //     } else if (regionHighlighted === null) {
@@ -120,7 +117,6 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
     // }, [regionHighlighted, currentMap.mapType, setHoveredRegion]);
 
     const getRegionFromDistrict = (districtData: any, name: any) => {
-        console.log('sucess', 4)
         if (!districtData) {
             return;
         }
@@ -132,7 +128,6 @@ export default function FullMap({ states, stateDistrictWiseData, regionHighlight
     };
 
     const getRegionFromState = (state: any) => {
-        console.log('sucess', 5)
         if (!state) {
             return;
         }
