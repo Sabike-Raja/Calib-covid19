@@ -113,7 +113,7 @@ function Dashboard() {
           <div className="cen">
             <QuickView data={states} deltas={deltas} />
             {/* <Minigraph timeseries={timeseries} animate={true} /> */}
-            <p className="font-style-red">If this goes <span onClick={() => navigate("/predection-view")}> click here</span> for find how many people will affect in feature </p>
+            <p className="font-style-red">If this goes <span onClick={() => navigate("/prediction-view")}> click here</span> for find how many people will affect in feature </p>
           </div>
           <div className="cen">
             <p className="font-style"> If you want to see more details </p>
