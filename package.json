@@ -50,6 +50,7 @@
     "date-fns": "^2.11.1",
     "document-register-element": "1.13.1",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "next": "9.1.5",
     "next-redux-wrapper": "^5.0.0",
     "pg": "^8.0.0",
