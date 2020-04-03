@@ -4,6 +4,10 @@ import withReduxStore from '../utils/with-redux-store';
 import { Provider } from 'react-redux';
 import { AppState } from '../types/AppState';
 
+import './index.scss'
+import '../containers/ChartView/style.scss'
+import '../containers/Dashboard/style.scss'
+
 export type AppPropsWithStore = AppProps & { reduxStore: AppState };
 
 // class App extends NextApp {
